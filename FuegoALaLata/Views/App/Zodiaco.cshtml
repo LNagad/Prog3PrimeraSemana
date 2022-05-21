@@ -1,35 +1,43 @@
 ﻿@model Application.ViewModel.ZodiacoViewModel
 @{
-
+    
 }
 
-<section class="zodiaco-main">
-    <section class="d-flex flex-column align-items-center">
-        <h1>Zodiaco</h1>
-        <form method="post" asp-controller="App" asp-action="Zodiaco">
-            <div class="mb-3">
-                <label for="dDate" class="form-label">Dia de nacimiento</label>
-                <input type="number" class="form-control" asp-for="dDate">
+<section class="zodiaco-main d-flex justify-content-center">
+    <section class="d-flex flex-column align-items-center" style="width: 30%;">
+        <div class="w-100">
+            <h1 style="text-align: center;">Zodiaco</h1>
+            <form method="post" asp-controller="App" asp-action="Zodiaco">
+                <div class="mb-3">
+                    <label for="dDate" class="form-label">Dia de nacimiento</label>
+                    <input type="number" class="form-control" asp-for="dDate">
+                </div>
+                <div class="mb-3">
+                    <label for="mDate" class="form-label">Mes de nacimiento</label>
+                    <select class="form-select form-select-lg" asp-for="mDate">
+                        <option selected>Abre este menu</option>
+                        <option value="1">Enero</option>
+                        <option value="2">Febrero</option>
+                        <option value="3">Marzo</option>
+                        <option value="4">Abril</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary w-100">Generar zodiaco</button>
+                </div>
+            </form>
+            <div class="d-flex justify-content-evenly">
+                @try
+                {
+                    <h4>Signo zodiacal:</h4>
+                    <h4 style="border-bottom: 5px solid #00FFAB;">@ViewBag.zodiacoData</h4>
+                }
+                catch (Exception ex)
+                {
+                    <h3>@ex.Message</h3>
+                }
             </div>
-            <div class="mb-3">
-                <label for="mDate" class="form-label">Mes de nacimiento</label>
-                <select class="form-select form-select-lg" asp-for="mDate">
-                    <option selected>Abre este menu</option>
-                    <option value="1">Enero</option>
-                    <option value="2">Febrero</option>
-                    <option value="3">Marzo</option>
-                    <option value="4">Abril</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-primary">Generar zodiaco</button>
-        </form>
-        @try
-        {
-            <h3>@ViewBag.zodiacoData</h3>
-        }
-        catch (Exception ex)
-        {
-            <h3>@ex.Message</h3>
-        }
+        </div>
+
     </section>
 </section>

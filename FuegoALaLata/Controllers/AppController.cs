@@ -19,7 +19,7 @@ namespace FuegoALaLata.Controllers
         }
         public IActionResult Zodiaco()
         {
-            ViewBag.zodiacoData = 0;
+            ViewBag.zodiacoData = "";
             return View();
         }
         [HttpPost]
@@ -27,6 +27,8 @@ namespace FuegoALaLata.Controllers
         {
             if (vm.dDate > 31)
             {
+                ViewBag.zodiacoData = "Hubo un problema con el dia...";
+            } else if (vm.dDate == 0) {
                 ViewBag.zodiacoData = "Hubo un problema con el dia...";
             } else
             {
