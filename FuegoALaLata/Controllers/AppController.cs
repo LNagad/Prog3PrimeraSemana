@@ -36,5 +36,14 @@ namespace FuegoALaLata.Controllers
             }
             return View();
         }
+        public IActionResult Conversion ()
+        {
+            return View();
+        }
+        public IActionResult CalPrestamos()
+        {
+            return View();
+        }
+        
     }
 }

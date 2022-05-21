@@ -6,20 +6,28 @@
 <section class="zodiaco-main d-flex justify-content-center">
     <section class="d-flex flex-column align-items-center" style="width: 30%;">
         <div class="w-100">
-            <h1 style="text-align: center;">Zodiaco</h1>
+            <h1 class="text-white" style="text-align: center;">Zodiaco</h1>
             <form method="post" asp-controller="App" asp-action="Zodiaco">
                 <div class="mb-3">
-                    <label for="dDate" class="form-label">Dia de nacimiento</label>
-                    <input type="number" class="form-control" asp-for="dDate">
+                    <label class="text-white" asp-for="dDate" class="form-label">Dia de nacimiento</label>
+                    <input type="number" class="form-control" asp-for="dDate" placeholder="Digite su dia de nacimiento">
                 </div>
                 <div class="mb-3">
-                    <label for="mDate" class="form-label">Mes de nacimiento</label>
+                    <label class="text-white" asp-for="mDate" class="form-label">Mes de nacimiento</label>
                     <select class="form-select form-select-lg" asp-for="mDate">
                         <option selected>Abre este menu</option>
                         <option value="1">Enero</option>
                         <option value="2">Febrero</option>
                         <option value="3">Marzo</option>
                         <option value="4">Abril</option>
+                        <option value="5">Mayo</option>
+                        <option value="6">Junio</option>
+                        <option value="7">Julio</option>
+                        <option value="8">Agosto</option>
+                        <option value="9">Septiembre</option>
+                        <option value="10">Octubre</option>
+                        <option value="11">Noviembre</option>
+                        <option value="12">Diciembre</option>
                     </select>
                 </div>
                 <div class="mb-3">
@@ -29,8 +37,8 @@
             <div class="d-flex justify-content-evenly">
                 @try
                 {
-                    <h4>Signo zodiacal:</h4>
-                    <h4 style="border-bottom: 5px solid #00FFAB;">@ViewBag.zodiacoData</h4>
+                    <h4 class="text-white">Signo zodiacal:</h4>
+                    <h4 class="text-white pb-1" style="border-bottom: 5px solid #FFFFFF;">@ViewBag.zodiacoData</h4>
                 }
                 catch (Exception ex)
                 {
