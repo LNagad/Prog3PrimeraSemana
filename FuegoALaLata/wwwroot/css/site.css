@@ -1,6 +1,14 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+/*disable arrows from number input*/
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -75,4 +83,10 @@ body {
 
 .zodiaco-main {
     width: 100%;
+}
+
+/*//prestamos*/
+.calP-font {
+    font-family: sans-serif;
+    font-weight: 600;
 }
