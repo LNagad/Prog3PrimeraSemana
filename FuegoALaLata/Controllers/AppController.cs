@@ -45,6 +45,15 @@ namespace FuegoALaLata.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Conversion(ConversionViewModel vm)
+        {
+            ConversionService cs = new();
+
+            ViewBag.resultado = cs.convertCoin(vm);
+
+            return View();
+        }
         public IActionResult CalPrestamos()
         {
             return View();

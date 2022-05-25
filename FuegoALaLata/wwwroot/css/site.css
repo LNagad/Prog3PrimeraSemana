@@ -89,4 +89,11 @@ body {
 .calP-font {
     font-family: sans-serif;
     font-weight: 600;
+    font-size: 12px !important;
+}
+
+/*//monedas*/
+
+.monedas-form {
+    width: 35%;
 }
