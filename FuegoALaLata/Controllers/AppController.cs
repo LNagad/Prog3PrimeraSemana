@@ -24,6 +24,7 @@ namespace FuegoALaLata.Controllers
             ViewBag.zodiacoData = "";
             return View();
         }
+
         [HttpPost]
         public IActionResult Zodiaco(ZodiacoViewModel vm)
         {
@@ -39,6 +40,7 @@ namespace FuegoALaLata.Controllers
             {
                 ViewBag.zodiacoData = zodiacoService.getZodiaco(vm);
             }
+
             return View();
         }
         public IActionResult Conversion()

@@ -9,11 +9,11 @@
             <h1 class="text-white" style="text-align: center;">Zodiaco</h1>
             <form method="post" asp-controller="App" asp-action="Zodiaco">
                 <div class="mb-3">
-                    <label class="text-white" asp-for="dDate" class="form-label">Dia de nacimiento</label>
-                    <input type="number" class="form-control" asp-for="dDate" placeholder="Digite su dia de nacimiento">
+                    <label asp-for="dDate" class="text-white"  class="form-label">Dia de nacimiento</label>
+                    <input asp-for="dDate" type="number" class="form-control"  placeholder="Digite su dia de nacimiento">
                 </div>
                 <div class="mb-3">
-                    <label class="text-white" asp-for="mDate" class="form-label">Mes de nacimiento</label>
+                    <label asp-for="mDate" class="text-white"  class="form-label">Mes de nacimiento</label>
                     <select class="form-select form-select-lg" asp-for="mDate">
                         <option selected>Abre este menu</option>
                         <option value="1">Enero</option>
