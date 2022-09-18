@@ -8,7 +8,7 @@ namespace Application.ViewModel
 {
     public class ZodiacoViewModel
     {
-        public int dDate { get; set; }
-        public int mDate { get; set; }
+        public int dDay { get; set; }
+        public int mMonth { get; set; }
     }
 }

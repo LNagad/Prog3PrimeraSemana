@@ -1,0 +1,46 @@
+﻿@model Application.ViewModel.ZodiacoViewModel
+@{
+    string[] months = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
+    ViewData["Title"] = "Zodiaco";
+}
+
+<div class="container-fluid mt-5 col-10 border-1">
+    <div class="container-fluid w-50">
+        <form class="w-100" method="post" asp-controller="Zodiaco" asp-action="Zodiaco" style="border: 1px solid rgba(0,0,0,.2)">
+            <div class=" w-100 mb-4 text-center">
+                <h3>Descubre tu signo zodiacal</h3>
+            </div>
+            <div class="w-100 d-flex flex-column align-items-center">
+                <div class="col-9 mb-2">
+                    
+                    <select class="form-select" asp-for="dDay">
+                        <option selected disabled>Selecciona tu dia de nacimiento</option>
+                        @for (int i = 1; i <= 31; i++)
+                        {
+                            <option value="@i">@i</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-9 mb-2">
+                    <select class="form-select" asp-for="mMonth">
+                        <option selected disabled>Selecciona tu mes de nacimiento</option>
+                        @for (int i = 1; i < 13; i++)
+                        {
+                            <option value="@i">@months[i-1]</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="col-12 mb-2  d-flex justify-content-center align-items-center">
+                <h1 id="zodiacoResult" class="me-2">@ViewBag.zodiaco</h1>
+            </div>
+            <div class="col-12 mb-2  d-flex justify-content-center">
+
+                <button class="btn w-25 btnColor" type="submit">Ver</button>
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    <script type="text/javascript" src="~/js/ZodiacoImages.js"></script>
+}

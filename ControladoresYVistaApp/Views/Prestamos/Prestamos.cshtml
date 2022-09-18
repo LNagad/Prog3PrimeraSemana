@@ -1,0 +1,59 @@
+﻿@model Application.ViewModel.SolPrestamoViewModel
+
+@{
+    ViewData["Title"] = "Monedas";
+}
+
+
+<div class="col-12  d-flex justify-content-center">
+
+    <div class="col-7">
+        <form class="w-100 border border-dark px-3" method="post" asp-controller="Prestamos" asp-area="Prestamo">
+            <h1 class="mb-3 text-uppercase">Calculadora de prestamos</h1>
+            <div class="w-100 mb-3 d-flex justify-content-evenly align-items-center">
+                <label class="w-100">Monto del prestamo</label>
+                <input asp-for="montoPrestamo" class="form-control width-inputs" type="number" step=".01" required min="10000" />
+            </div>
+            <div class="w-100 mb-3 d-flex justify-content-end align-items-center">
+                <label class="w-100">Tipo de prestamo</label>
+                <select asp-for="tipoPrestamo" id="typeP" class="form-select width-inputs2 " required>
+                    <option value="" disabled selected>Seleccione el tipo de prestamo</option>
+                    <option value="1">Personal</option>
+                    <option value="2">Automóvil</option>
+                    <option value="3">Hipotecario</option>
+                </select>
+            </div>
+            <div class="w-100 mb-3 d-flex justify-content-end align-items-center">
+                <label class="w-100">Cantidad de cuotas mensuales</label>
+                <select asp-for="cuotasMensuales" class="form-select width-inputs2" required>
+                    <option value="" disabled selected>Seleccione la cantidad de cuotas</option>
+                    @for (int i = 12; i <= 120; i += 6)
+                    {
+                        <option value="@i">@i</option>
+                    }
+                </select>
+            </div>
+
+            <div class="w-100 mb-3 d-flex justify-content-evenly align-items-center">
+                <div class="w-100">
+                    <label class="w-100">Tasa de intéres anual (%)</label>
+                </div>
+                <input asp-for="interesAnual" id="interestP" type="number" readonly class="form-control width-inputs" />
+            </div>
+
+            <div class="w-100 mb-3 d-flex justify-content-end align-items-center">
+                <button class="btn rounded-3 btnColor">Calcular</button>
+            </div>
+
+            <div class="w-100 mb-3 d-flex justify-content-evenly align-items-center">
+                <label class="w-100">Cuota mensual</label>
+                <input asp-for="cuotaMensual" class="form-control width-inputs" type="number" disabled value="@ViewBag.monto" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript" src="~/js/Prestamos.js">
+    </script>
+}
